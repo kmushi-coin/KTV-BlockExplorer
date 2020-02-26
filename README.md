@@ -1,79 +1,75 @@
-[![Go Report Card](https://goreportcard.com/badge/trezor/blockbook)](https://goreportcard.com/report/trezor/blockbook)
-
 # PIVX Block Explorer
 
 Customized version of TREZOR block indexer: https://github.com/trezor/blockbook
 
-Tested on Ubuntu 18<br> INSTALL THESE PACKAGES<br>
-sudo apt-get update<br>
-sudo apt-get install -y build-essential<br>
-sudo apt-get install software-properties-common<br>
-sudo apt-get -y install lz4<br>
-sudo apt install -y zstd<br>
-sudo apt-get install -y libsnappy-dev<br>
-sudo apt-get install -y libbz2-dev<br>
-sudo apt-get install -y libzmq3-dev<br>
-sudo apt install -y golang<br>
-sudo apt-get install -y librocksdb-dev<br>
-sudo apt-get install -y liblz4-dev<br>
-sudo apt-get install -y libjemalloc-dev<br>
-sudo apt-get install libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev libzstd-dev<br>
+Tested on Ubuntu 18, these instructions are for a manual or ad-hoc build.
 
-FOR CHARTS TO WORK YOU WILL NEED TO INSTALL<br>
-apt install python3-pip<br>
-pip install bitcoinrpc<br>
-pip install python-bitcoinrpc<br>
+INSTALL THESE PACKAGES
+```bash
+sudo apt-get update
+sudo apt-get install -y build-essential software-properties-common lz4 zstd libsnappy-dev libbz2-dev libzmq3-dev golang librocksdb-dev liblz4-dev libjemalloc-dev libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev libzstd-dev
+```
 
-CREATE THE DIRECTORIES <br>
-mkdir go<br>
+FOR CHARTS TO WORK YOU WILL NEED TO INSTALL
+```bash
+sudo apt-get install -y python3-pip
+pip install bitcoinrpc python-bitcoinrpc
+```
 
-CREATE THE GO PATH<br>
-GOPATH=/home/USER/go   CHANGE USER to your user name<br>
+CREATE THE DIRECTORIES
+```bash
+mkdir go
+```
 
-cd go<br>
-mkdir src<br>
-cd src<br>
-git clone https://github.com/deansparrow/PIVX-BlockExplorer<br>
-mv PIVX-BlockExplorer/ blockbook/<br>
-cd blockbook<br>
+CREATE THE GO PATH
+```
+GOPATH=/home/<USER>/go   #CHANGE <USER> to your user name
+```
 
-go mod init<br>
-go mod tidy<br>
-go build<br>
-YOU WILL GET AN ERROR MESSAGE...THATS OK<br>
+```bash
+cd go && mkdir src && cd src
+git clone https://github.com/PIVX-Project/PIVX-BlockExplorer blockbook
+cd blockbook
+```
 
-Edit build/blockchaincfg.json or build/tnblockchaincfg.json adding wallet info<br>
+Edit `build/blockchaincfg.json` or `build/tnblockchaincfg.json` adding wallet info
 
-RUN THESE SCRIPTS<br>
-./build.sh<br>
-
-UNCOMMENT line for MAINNET or TESTNET <br>
-./launch.sh<br>
-
-SETUP NGINX and SSL certs<br>
-
-Edit contrib/scripts/charts/updateCharts_blocks.py for charts<br>
-Edit contrib/scripts/charts/updateCharts_github.py for charts<br>
-make sure you update config in updateCharts_blocks.py matching your pivxd credentials<br>
-
-run these every hour in a cron<br>
-contrib/scripts/charts/updateCharts_blocks.py<br>
-contrib/scripts/charts/updateCharts_github.py<br>
+```bash
+go mod init
+go mod tidy
+go build
+```
+YOU WILL GET AN ERROR MESSAGE...THATS OK
 
 
+RUN THESE SCRIPTS
+```bash
+./build.sh
+```
 
+SETUP NGINX and SSL certs
 
+UNCOMMENT line for MAINNET or TESTNET
+```bash
+./launch.sh
+```
 
+Edit the following 2 python scripts with your RPC credentials
+```bash
+contrib/scripts/charts/updateCharts_blocks.py
+contrib/scripts/charts/updateCharts_github.py
+```
+make sure you update config in `updateCharts_blocks.py` matching your pivxd credentials<br>
 
+run these every hour in a cron (`crontab -e`)
+```cron
+@hourly python3 /<full/path/to>/updateCharts_blocks.py
+@hourly python3 /<full/path/to>/updateCharts_github.py
+```
 
+#### Out of memory when doing initial synchronization
 
+How to reduce memory footprint of the initial sync:
 
-
-
-
-
-
-
-
-
-
+- disable rocksdb cache by parameter `-dbcache=0`, the default size is 500MB
+- run blockbook with parameter `-workers=1`. This disables bulk import mode, which caches a lot of data in memory (not in rocksdb cache). It will run about twice as slowly but especially for smaller blockchains it is no problem at all.
