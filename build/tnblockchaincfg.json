@@ -1,8 +1,8 @@
 {
     "coin_name": "PIVX",
-    "coin_shortcut": "PIV",
-    "coin_label": "PIVX",
-    "rpc_url": "http://127.0.0.1:12300/",
+    "coin_shortcut": "tPIV",
+    "coin_label": "TESTNET PIVX",
+    "rpc_url": "http://127.0.0.1:12301/",
     "rpc_user": "PIVXrockdev",
     "rpc_pass": "PIVXrockdev123dsfsf456",
     "rpc_timeout": 25,
