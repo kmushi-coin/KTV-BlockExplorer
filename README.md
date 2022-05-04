@@ -4,6 +4,9 @@
 
 Customized version of TREZOR block indexer: https://github.com/trezor/blockbook
 
-Live instances:
-- https://explorer.pivx.link
-- https://testnet.pivx.link
+Edit build/blockchaincfg.json or build/tnblockchaincfg.json adding wallet info
+Edit contrib/scripts/charts/updateCharts_blocks.py  for charts
+Edit contrib/scripts/charts/updateCharts_github.py  for charts
+
+
+
