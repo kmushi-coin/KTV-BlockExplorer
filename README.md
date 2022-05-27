@@ -28,7 +28,7 @@ CREATE THE DIRECTORIES <br>
 mkdir go<br>
 
 CREATE THE GO PATH<br>
-GOPATH=/home/USER/go<br>
+GOPATH=/home/USER/go   CHANGE USER to your user name<br>
 
 cd go<br>
 mkdir src<br>
