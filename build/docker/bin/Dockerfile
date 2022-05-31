@@ -1,6 +1,8 @@
-# initialize from the image
-
-FROM debian:9
+# initialize from the image defined by BASE_IMAGE
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
+ARG DEBIAN_FRONTEND=noninteractive
+ARG PORTABLE_ROCKSDB
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -14,7 +16,7 @@ ENV ROCKSDB_VERSION=v5.18.3
 ENV GOPATH=/go
 ENV PATH=$PATH:$GOPATH/bin
 ENV CGO_CFLAGS="-I/opt/rocksdb/include"
-ENV CGO_LDFLAGS="-L/opt/rocksdb -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy -llz4"
+ENV CGO_LDFLAGS="-L/opt/rocksdb -ldl -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy -llz4"
 
 RUN mkdir /build
 
@@ -28,7 +30,7 @@ RUN echo -n "GOPATH: " && echo $GOPATH
 
 # install rocksdb
 RUN cd /opt && git clone -b $ROCKSDB_VERSION --depth 1 https://github.com/facebook/rocksdb.git
-RUN cd /opt/rocksdb && CFLAGS=-fPIC CXXFLAGS=-fPIC make -j 4 release
+RUN cd /opt/rocksdb && CFLAGS=-fPIC CXXFLAGS="-fPIC -Wno-error=deprecated-copy -Wno-error=pessimizing-move" make -j 4 release
 RUN strip /opt/rocksdb/ldb /opt/rocksdb/sst_dump && \
     cp /opt/rocksdb/ldb /opt/rocksdb/sst_dump /build
 

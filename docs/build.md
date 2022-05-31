@@ -43,10 +43,10 @@ mandatory, of course.
 > back-end configuration and Blockbook configuration as well. There were many options that were duplicated across
 > configuration files and therefore error prone.
 >
-> Actually all configuration options and also build options for both Blockbook and back-end are defined in single JSON
+> Now, all configuration options and also build options for both Blockbook and back-end are defined in single JSON
 > file and all stuff required during build is generated dynamically.
 
-Makefile targets follow simple pattern, there are few prefixes that define what to build.
+Makefile targets follow simple pattern, there are a few prefixes that define what to build.
 
 * *deb-blockbook-&lt;coin&gt;* – Build Blockbook package for given coin.
 
@@ -59,7 +59,7 @@ Makefile targets follow simple pattern, there are few prefixes that define what 
 
 * *all* – Build both Blockbook and back-end packages for all coins.
 
-Which coins are possible to build is defined in *configs/coins*. Particular coin has to have JSON config file there.
+Which coins are possible to build is defined in *configs/coins*. Each coin has to have JSON config file there.
 
 For example we want to build some packages for Bitcoin and Bitcoin Testnet.
 
@@ -75,23 +75,17 @@ been performed there was cleaned build directory and rebuilt Docker image.
 
 ### Extra variables
 
-There are few variables that can be passed to make in order to modify build process.
+There are few variables that can be passed to `make` in order to modify build process.
 
-In general, build of Blockbook binary require some dependencies. They are downloaded automatically during build process
-but if you need to build binary repeatedly it consumes a lot of time. Here comes variable *UPDATE_VENDOR* that if is
-unset says that build process uses *vendor* (i.e. dependencies) from your local repository. For example:
-`make deb-bitcoin UPDATE_VENDOR=0`. But before the command is executed there must be *vendor* directory populated,
-you can do it by calling `dep ensure --vendor-only`. See [Manual build](#manual-build) instructions below.
+`BASE_IMAGE`: Specifies the base image of the Docker build image. By default, it chooses the same Linux distro as the host machine but you can override it this way `make BASE_IMAGE=debian:10 all-bitcoin` to make a build for Debian 10.
 
-All build targets allow pass additional parameters to underlying command inside container. It is possible via ARGS
-variable. For example if you want run only subset of unit-tests, you will perform it by calling:
-`make test ARGS='-run TestBitcoinRPC' UPDATE_VENDOR=0`
-
-Common behaviour of Docker image build is that build steps are cached and next time they are executed much faster.
+`NO_CACHE`: Common behaviour of Docker image build is that build steps are cached and next time they are executed much faster.
 Although this is a good idea, when something went wrong you will need to override this behaviour somehow. Execute this
-command: `make build-images NO_CACHE=true`.
+command: `make NO_CACHE=true all-bitcoin`.
 
-### On naming conventions and versioning
+`PORTABLE`: By default, the RocksDB binaries shipped with Blockbook are optimized for the platform you're compiling on (-march=native or the equivalent). If you want to build a portable binary, use `make PORTABLE=1 all-bitcoin`.
+
+### Naming conventions and versioning
 
 All configuration keys described below are in coin definition file in *configs/coins*.
 
@@ -138,7 +132,7 @@ and revision both defined in coin definition file in *backend.version* and *back
 
 Blockbook versioning is much simpler. There is only one version defined in *configs/environ.json*.
 
-### On back-end building
+### Back-end building
 
 Because we don't keep back-end archives inside out repository we download them during build process. Build steps
 are these: download, verify and extract archive, prepare distribution and make package.
