@@ -18,7 +18,7 @@ function AddSupplyToolTip(chart) {
         // axis0 return millions rounded to two decimal places
         if (this_dataset.yAxisID == "axis0") {
             let label = Math.round(tooltipItem.value / 10000) / 100;
-            return this_dataset.label + ": " + label + 'M PIV';
+            return this_dataset.label + ": " + label + 'M KTV';
         } else {
             // for axis1 return regular label
             return this_dataset.label + ": " + tooltipItem.value;
