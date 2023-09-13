@@ -66,9 +66,9 @@ func init() {
     // KTV mainnet Address encoding magics
     MainNetParams = chaincfg.MainNetParams
     MainNetParams.Net = MainnetMagic
-    MainNetParams.PubKeyHashAddrID = []byte{30} // starting with 'D'
-    MainNetParams.ScriptHashAddrID = []byte{13}
-    MainNetParams.PrivateKeyID = []byte{212}
+    MainNetParams.PubKeyHashAddrID = []byte{46} // starting with 'D'
+    MainNetParams.ScriptHashAddrID = []byte{85}
+    MainNetParams.PrivateKeyID = []byte{174}
 
     // KTV testnet Address encoding magics
     TestNetParams = chaincfg.TestNet3Params
