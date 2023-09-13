@@ -10,8 +10,7 @@
   "message_queue_binding": "tcp://127.0.0.1:38349",
   "subversion": "",
   "address_format": "",
-  "xpub_magic": 36513075,
-  "slip44": 119,
+  "slip44": 427,
 
   "mempool_workers": 8,
   "mempool_sub_workers": 2,
