@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    color: #f6c02c;
+    color: #ffcc08;
     text-decoration: none;
 }
 
@@ -256,7 +256,7 @@ table.data-table table.data-table th {
 }
 
 .page-link {
-    color: #f6c02c;
+    color: #ffcc08;
 }
 
 .page-text {
@@ -266,11 +266,11 @@ table.data-table table.data-table th {
 }
 
 .page-link {
-    color: #f6c02c;
+    color: #ffcc08;
 }
 
 .page-item.active .page-link {
-    background-color: #f6c02c;
+    background-color: #ffcc08;
 }
 
 #txSpecific {
