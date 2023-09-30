@@ -1,296 +1,311 @@
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
-    width: 100%;
-    background-color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
-    font-size: 12px;
+  color: #ffef00;
+  width: 100%;
+  background-color: #111111;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+}
+
+.table {
+  color: #ffef00;
 }
 
 a {
-    color: #ffcc08;
-    text-decoration: none;
+  color: #ffef00;
+  text-decoration: none;
 }
 
 h1 small {
-    font-size: 65%;
+  font-size: 65%;
 }
 
 h3 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .octicon {
-    color: #777;
-    display: inline-block;
-    vertical-align: text-top;
-    fill: currentColor;
-    height: 16px;
+  color: #777;
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+  height: 16px;
 }
 
 @media (min-width: 768px) {
-    .container {
-        max-width: 750px;
-    }
+  .container {
+    max-width: 750px;
+  }
 }
 
 @media (min-width: 992px) {
-    body {
-        font-size: 12px;
-    }
-    .container {
-        max-width: 970px;
-    }
-    .octicon {
-        height: 24px;
-    }
-    .navbar-form .form-control {
-        width: 230px;
-    }
+  body {
+    font-size: 12px;
+  }
+  .container {
+    max-width: 970px;
+  }
+  .octicon {
+    height: 24px;
+  }
+  .navbar-form .form-control {
+    width: 230px;
+  }
 }
 
 @media (min-width: 1200px) {
-    body {
-        font-size: 14px;
-    }
-    .container {
-        max-width: 1170px;
-    }
-    .octicon {
-        height: 32px;
-    }
-    .navbar-form .form-control {
-        width: 360px;
-    }
+  body {
+    font-size: 14px;
+  }
+  .container {
+    max-width: 1170px;
+  }
+  .octicon {
+    height: 32px;
+  }
+  .navbar-form .form-control {
+    width: 360px;
+  }
 }
 
 #header {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-#header input{
-    background-color:#1e1e1f;
+#header input {
+  background-color: #181c23;
 }
 
-#header button{
-    background-color:#fcd546;
-    color:#1e1e1f;
-    border: #fff 1px solid;
+#header button {
+  background-color: #fcd546;
+  color: #181c23;
+  border: #fff 1px solid;
 }
 
 .bg-purple {
-    background-color: #1e1e1f;
+  background-color: #181c23;
 }
 
 .bg-gradient {
-    background:#1e1e1f !important;
+  background: #181c23 !important;
 }
 
 #wrap {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.page-link {
+  background-color: #181c23;
 }
 
 #footer {
-    color: #fff;
-    flex-shrink: none; vertical-align:middle;
-
+  color: #fff;
+  flex-shrink: none;
+  vertical-align: middle;
 }
-#footer a{
-    color: #fff;
-    text-decoration: none;
+#footer a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .alert-data {
-    color: #383d41;
-    background-color: #f4f4f4;
-    border-color: #d6d8db;
-    padding: 15px;
+  color: #ffa800;
+  background-color: #181c23;
+  border-color: #d6d8db;
+  padding: 15px;
 }
 
 .line-top {
-    border-top: 1px solid #EAEAEA;
-    padding: 10px 0 0;
+  border-top: 1px solid #eaeaea;
+  padding: 10px 0 0;
 }
 
 .line-mid {
-    padding: 15px;
+  padding: 15px;
 }
 
 .line-bot {
-    border-bottom: 2px solid #EAEAEA;
-    padding: 0 0 15px;
+  border-bottom: 2px solid #eaeaea;
+  padding: 0 0 15px;
 }
 
 .txvalues {
-    display: inline-block;
-    padding: .7em 2em;
-    font-size: 13px;
-    font-weight: 100;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25em;
-    margin-top: 5px;
+  display: inline-block;
+  padding: 0.7em 2em;
+  font-size: 13px;
+  font-weight: 100;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+  margin-top: 5px;
 }
 
 .txvalues:not(:last-child) {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .txvalues-default {
-    background-color: #EBEBEB;
-    color: #333;
+  background-color: #111111;
+  color: #e5e4e2;
 }
 
 .txvalues-success {
-    background-color: dimgray;
+  background-color: dimgray;
 }
 
 .txvalues-primary {
-    background-color: #000;
+  background-color: #000;
 }
 
 .txvalues-danger {
-    background-color: #AC0015;
-    text-transform: uppercase;
+  background-color: #ac0015;
+  text-transform: uppercase;
 }
 
 .tx-own {
-    background-color: #fbf8f0;
+  background-color: #fbf8f0;
 }
 
 .tx-amt {
-    float: right!important;
+  float: right !important;
 }
 
 .tx-in .tx-own .tx-amt {
-    color: #dc3545!important;
+  color: #dc3545 !important;
 }
 
 .tx-out .tx-own .tx-amt {
-    color: #28a745!important;
+  color: #28a745 !important;
 }
 
 .tx-addr {
-    float: left!important;
+  float: left !important;
 }
 
 .tx-descr {
-  color: #212121!important;
+  color: #212121 !important;
   font-style: italic;
   font-size: 11px;
 }
 
 .ellipsis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .data-div {
-    margin: 20px 0 30px 0;
+  margin: 20px 0 30px 0;
 }
 
 .data-div .col-md-10 {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .data-table {
-    table-layout: fixed;
-    border-radius: .25rem;
-    background: white;
+  table-layout: fixed;
+  border-radius: 0.25rem;
+  background: #181c23;
 }
 
-.data-table td, .data-table th {
-    padding: .4rem;
+.data-table td,
+.data-table th {
+  padding: 0.4rem;
 }
 
 .data-table span.ellipsis {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .data {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 table.data-table table.data-table th {
-    border-top: 0;
-    font-weight: normal;
+  border-top: 0;
+  font-weight: normal;
 }
 
 .alert .data-table {
-    margin: 0;
+  margin: 0;
 }
 
 .navbar-nav .nav-link {
-    padding-right: 0;
-    padding-left: .25rem;
+  padding-right: 0;
+  padding-left: 0.25rem;
 }
 
 .navbar-text .nav-link {
-    padding: 0;
+  padding: 0;
 }
 
 ::-webkit-input-placeholder {
-    color: #CCC!important;
-    font-style: italic;
-    font-size: 14px;
+  color: #ccc !important;
+  font-style: italic;
+  font-size: 14px;
 }
 
 ::-moz-placeholder {
-    color: #CCC!important;
-    font-style: italic;
-    font-size: 14px;
+  color: #ccc !important;
+  font-style: italic;
+  font-size: 14px;
 }
 
-.h-container ul, .h-container h3 {
-    margin: 0;
+.h-container ul,
+.h-container h3 {
+  margin: 0;
 }
 
 .h-container h5 {
-    margin-top: 6px;
-    margin-bottom: 0;
+  margin-top: 6px;
+  margin-bottom: 0;
 }
 
 .page-link {
-    color: #ffcc08;
+  color: #ffef00;
 }
 
 .page-text {
-    display: block;
-    padding: .5rem .3rem;
-    line-height: 1.25;
+  display: block;
+  padding: 0.5rem 0.3rem;
+  line-height: 1.25;
 }
 
 .page-link {
-    color: #ffcc08;
+  color: #ffef00;
 }
 
 .page-item.active .page-link {
-    background-color: #ffcc08;
+  color: #181c23;
+  background-color: #ffef00;
 }
 
 #txSpecific {
-    margin: 0;
+  margin: 0;
 }
 
 .string {
-    color: darkgreen;
+  color: darkgreen;
 }
 
-.number, .boolean {
-    color: darkred;
+.number,
+.boolean {
+  color: darkred;
 }
 
 .null {
-    color: red;
+  color: red;
 }
 
 .key {
-    color: #EB65F8;
+  color: #eb65f8;
 }
 
 .spinner {
@@ -320,8 +335,8 @@ table.data-table table.data-table th {
 }
 
 .spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
 }
 
 .spinner .rect4 {
@@ -335,17 +350,26 @@ table.data-table table.data-table th {
 }
 
 @-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-  20% { -webkit-transform: scaleY(1.0) }
+  0%,
+  40%,
+  100% {
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    -webkit-transform: scaleY(1);
+  }
 }
 
 @keyframes sk-stretchdelay {
-  0%, 40%, 100% {
+  0%,
+  40%,
+  100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4);
-  }  20% {
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
+  }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
   }
 }
 
@@ -356,6 +380,6 @@ table.data-table table.data-table th {
 }
 
 .chart-container {
-    margin: 0 auto;
-    width: 93%;
+  margin: 0 auto;
+  width: 93%;
 }
